@@ -46,10 +46,10 @@
             </div>
             <div id="map"></div>
         </div>
-        <!-- <div class="test">
+        <div class="test">
             <i-button @click="show">Click me!</i-button>
             <Modal v-model="visible" title="Welcome">Welcome to iView</Modal>
-        </div> -->
+        </div>
   </div>
 </template>
 
@@ -77,70 +77,70 @@ export default {
 </script>
 
 <style lang="postcss">
-  html,
-        body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
 
-        #app {
-            width: 100%;
-            height: 100%;
-        }
+    #app {
+        width: 100%;
+        height: 100%;
+    }
 
-        .mapContent {
-            position: relative;
-            width: 100%;
-            height: 80%;
-        }
+    .mapContent {
+        position: relative;
+        width: 100%;
+        height: 80%;
+    }
 
-        #map {
-            width: 100%;
-            height: 100%;
-        }
+    #map {
+        width: 100%;
+        height: 100%;
+    }
 
-        .statisticsBox {
-            position: absolute;
-            width: 100%;
-            height: 70px;
-            padding: 10px;
-            background: rgba(14, 61, 105, 0.75);
-            z-index: 9;
-            color: #fff
-        }
+    .statisticsBox {
+        position: absolute;
+        width: 100%;
+        height: 70px;
+        padding: 10px;
+        background: rgba(14, 61, 105, 0.75);
+        z-index: 9;
+        color: #fff
+    }
 
-        .statisticsBox > .title {
-            float: left;
-            margin-top: 7px;
-            font-size: 20px;
-        }
+    .statisticsBox > .title {
+        float: left;
+        margin-top: 7px;
+        font-size: 20px;
+    }
 
-        .instrumentBox {
-            float: left;
-            padding-top: 10px;
-            margin-left: 30px;
-        }
+    .instrumentBox {
+        float: left;
+        padding-top: 10px;
+        margin-left: 30px;
+    }
 
-        .selectBox {
-            display: inline-block;
-            margin-left: 8px;
-        }
-        .dataBox {
-            float: left;
-            margin-left: 30px
-        }
-        .dataBox > .showItem {
-            display: inline-block;
-            width: 100px;
-            text-align: center;
-            border-right: 1px solid #ddd
-        }
-        .dataBox > .showItem > .title {
-            font-weight: normal
-        }
-        .dataBox > .showItem > .dataNumber {
-            font-size: 20px
-        }
+    .selectBox {
+        display: inline-block;
+        margin-left: 8px;
+    }
+    .dataBox {
+        float: left;
+        margin-left: 30px
+    }
+    .dataBox > .showItem {
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+        border-right: 1px solid #ddd
+    }
+    .dataBox > .showItem > .title {
+        font-weight: normal
+    }
+    .dataBox > .showItem > .dataNumber {
+        font-size: 20px
+    }
 </style>
