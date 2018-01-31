@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img :src="logoImg" alt="">
       <Button>demo</Button>
   </div>
 </template>
