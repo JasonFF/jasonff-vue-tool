@@ -46,7 +46,7 @@
     getItem,
     deleteImg,
     noReceipt,
-    parseUrl
+    getOrderId
   } from './util';
   import Vue from 'vue'
 
@@ -56,6 +56,7 @@
     data() {
       return {
         orderNum: getOrderNum(),
+        orderId: getOrderId(),
         BASEURL: BASEURL,
         hasOrder: 1,
         list: [
@@ -67,7 +68,7 @@
           //   img: '',
           // }
         ],
-        uploadUrl: `${BASEURL}/receipt/uploadFile?deliveryOrderNum=${getOrderNum()}`,
+        uploadUrl: `${BASEURL}/receipt/uploadFile?deliveryOrderNum=${getOrderNum()}&deliveryOrderId=${getOrderId()}`,
         pageIndex: 1,
         totalCount: 0,
         pageSize: 5,
@@ -84,7 +85,7 @@
             title: '确认',
             content: '<p>无签收单将删除所有照片。</p>',
             onOk: () => {
-              noReceipt(this.orderNum, 1).then(res => {
+              noReceipt(this.orderId, 1).then(res => {
                 if (res.result == 0) {
                   this.init()
                 }
@@ -95,7 +96,7 @@
             }
           });
         } else {
-          noReceipt(this.orderNum, status).then(res => {
+          noReceipt(this.orderId, status).then(res => {
                 if (res.result == 0) {
                   this.init()
                 }
@@ -109,7 +110,7 @@
         this.$Message.success('上传成功')
       },
       init() {
-        getItem(this.orderNum).then(res => {
+        getItem(this.orderId).then(res => {
           this.list = res.imgsList
           if (res.receivestatus == 2) {
             this.hasOrder = 0

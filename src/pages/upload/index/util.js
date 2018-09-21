@@ -1,4 +1,7 @@
-export const BASEURL = process.env.NODE_ENV == 'production'?"":'http://192.168.12.217:8084'
+import {BASEURL as _BASEURL} from '../../../widgets/index'
+
+
+export const BASEURL = _BASEURL
 
 export function parseParams(obj) {
   if (!obj) {

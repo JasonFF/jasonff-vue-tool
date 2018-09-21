@@ -1,11 +1,8 @@
 import {action, BASEURL as _BASEURL} from '../../../widgets/index'
 
-export const BASEURL = query.projectname?`/${query.projectname}`:_BASEURL
+export const BASEURL = _BASEURL
 
-const query = parseUrl()
-
-export function parseUrl(){
-  const url = window.location.href
+function parseUrl(url){
   const decodeUrl = decodeURIComponent(url)
   const place_ask = decodeUrl.indexOf('?')
   const search = decodeUrl.slice(place_ask+1)
@@ -28,43 +25,42 @@ export function parseUrl(){
   return result
 }
 
+
 export function getOrderNum () {
-  const search = window.location.search
-  const params = (function(search){
-    if (!search) {
-      return
-    }
-    return search.split('=')[1]
-  })(search)
-  return params
+  return  parseUrl(window.location.href).num
 }
 
-export function getItem(orderNum) {
+export function getOrderId() {
+  return  parseUrl(window.location.href).id
+}
+
+export function getItem(orderId) {
   return action({
     url: '/receipt/editReceipt',
     method: 'get',
     params: {
-      deliveryOrderNum: orderNum
+      deliveryOrderId: orderId
     }
   })
 }
 
-export function uploadImg(orderNum) {
+export function uploadImg(orderNum, orderId) {
   return action({
     url: '/receipt/uploadFile',
     method: 'get',
     params: {
-      deliveryOrderNum: orderNum
+      deliveryOrderNum: orderNum,
+      deliveryOrderId: orderId
     }
   })
 }
 
-export function noReceipt(orderNum, exist) {
+export function noReceipt(orderId, exist) {
   return action({
     url: '/receipt/noneReceipt',
     method: 'get',
     params: {
-      deliveryOrderNum: orderNum,
+      deliveryOrderId: orderId,
       exist
     }
   })

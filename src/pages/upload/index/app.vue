@@ -124,7 +124,7 @@
               title: it.deptName,
               img: it.imgUrl,
               orderNum: it.deliveryOrderNumInput,
-              status: it.deliveryOrderNum,
+              status: it.deliveryOrderId,
               canEdit: false
             }
           })
@@ -136,7 +136,7 @@
             return this.$Message.error('修改失败')
           }
           item.orderNum = res.deliveryOrderNumInput
-          item.status = res.deliveryOrderNum
+          item.status = res.deliveryOrderId
         })
       },
       change(item) {
@@ -161,7 +161,7 @@
               item.title = res.deptName,
               item.img = res.imgUrl,
               item.orderNum = res.deliveryOrderNumInput,
-              item.status = res.deliveryOrderNum,
+              item.status = res.deliveryOrderId,
               item.canEdit = false
             return this.$Message.success('修改成功')
           }
@@ -199,7 +199,7 @@
           item.title = res.deptName,
           item.img = res.imgUrl,
           item.orderNum = res.deliveryOrderNumInput,
-          item.status = res.deliveryOrderNum,
+          item.status = res.deliveryOrderId,
           item.canEdit = false
         }
       },
@@ -208,7 +208,8 @@
           return {
             id: it.id,
             imgUrl: it.img,
-            deliveryOrderNumInput: it.orderNum
+            deliveryOrderNumInput: it.orderNum,
+            deliveryOrderId: it.status,
           }
         })).then(res => {
           if (res.result == 0) {
